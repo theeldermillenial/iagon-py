@@ -36,7 +36,9 @@ data has been stored on Iagon, so this example will download them all. Some info
 on how the groups were generated and clustered can be found
 [on Twitter](https://x.com/ElderM/status/1702643308198060211?s=20).
 
-To get started, install `iagon-py` with pip:
+You can install with `pip` from PyPI, but there is currently a bug in `pycardano` that
+doesn't allow `CIP8` message signing with extended payment keys, so this will not work.
+Instead, you will need to clone and install this repo:
 
 ```bash
 pip install iagon-py

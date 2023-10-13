@@ -112,12 +112,14 @@ class IagonAdapter:
     url = "https://gw.v109.iagon.com/api/v2"
     json_header: dict
     auth_header: dict
+    timeout: int
 
-    def __init__(self, token: str | None = None) -> None:
+    def __init__(self, token: str | None = None, timeout: int = 60) -> None:
         """Create an Iagon object with an active auth token.
 
         Args:
             token: Active auth token. Defaults to None.
+            timeout: Request timeouts.
         """
         self.token = token
 
@@ -126,6 +128,8 @@ class IagonAdapter:
             "Authorization": f"Bearer {token}",
             "Content-Type": "application/json",
         }
+
+        self.timeout = timeout
 
     @classmethod
     def nonce(cls, address: str) -> str:
@@ -245,7 +249,7 @@ class IagonAdapter:
         raw_response = requests.post(
             self.url + "/public/checkauth",
             headers=self.auth_header,
-            timeout=10,
+            timeout=self.timeout,
         )
         response = self.handle_response(raw_response)
 
@@ -256,7 +260,7 @@ class IagonAdapter:
         raw_response = requests.post(
             self.url + "/public/disconnect",
             headers=self.auth_header,
-            timeout=10,
+            timeout=self.timeout,
         )
         self.handle_response(raw_response)
 
@@ -298,7 +302,7 @@ class IagonAdapter:
             self.url + "/storage/directory/create",
             data=json.dumps({"directory_name": name, "parent_directory_id": parent_id}),
             headers=self.json_header,
-            timeout=10,
+            timeout=self.timeout,
         )
         response = self.handle_response(raw_response)
         return CreateDirectorySuccess.model_validate(response).data
@@ -345,7 +349,7 @@ class IagonAdapter:
             data=data,
             files=files,
             headers=self.auth_header,
-            timeout=10,
+            timeout=self.timeout,
         )
 
         # Validate the response
@@ -372,7 +376,7 @@ class IagonAdapter:
             self.url + "/storage/download/",
             data={"id": file_id, "password": password},
             headers=self.auth_header,
-            timeout=10,
+            timeout=self.timeout,
         )
         return raw_response.content
 
@@ -397,14 +401,14 @@ class IagonAdapter:
             raw_response = requests.get(
                 self.url + f"/storage/list/{permission}",
                 headers=self.json_header,
-                timeout=10,
+                timeout=self.timeout,
             )
         else:
             path_list = "/".join(path)
             raw_response = requests.get(
                 self.url + f"/storage/directory/{path_list}/list",
                 headers=self.json_header,
-                timeout=10,
+                timeout=self.timeout,
             )
         response = self.handle_response(raw_response)
         return ListSuccess.model_validate(response)
@@ -423,7 +427,7 @@ class IagonAdapter:
         raw_response = requests.delete(
             self.url + f"/storage/directory/{dir_id}",
             headers=self.json_header,
-            timeout=10,
+            timeout=self.timeout,
         )
         response = self.handle_response(raw_response)
         return Success.model_validate(response)
