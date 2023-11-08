@@ -1,26 +1,20 @@
 <div align="center">
 
-  <img src="imgs/iagon-py.png" alt="iagon-py" width="200" height="auto" />
+  <img src="https://raw.github.com/theeldermillenial/iagon-py/master/imgs/iagon-py.png" alt="iagon-py" width="200" height="auto" />
   <p>
     A Python client for Iagon!
   </p>
 
 <!-- Badges -->
 <p>
-  <a href="https://github.com/theeldermillenial/iagon-py/graphs/contributors">
-    <img src="https://img.shields.io/github/contributors/theeldermillenial/iagon-py" alt="contributors" />
+  <a href="https://pypi.org/project/iagon-py/">
+    <img src="https://img.shields.io/pypi/v/iagon-py" alt="version" />
+  </a>
+  <a href="https://pypi.org/project/iagon-py/">
+    <img src="https://img.shields.io/pepy/dt/iagon-py" alt="downloads" />
   </a>
   <a href="">
-    <img src="https://img.shields.io/pypi/v/iagon-py" alt="last update" />
-  </a>
-  <a href="https://github.com/theeldermillenial/iagon-py/network/members">
-    <img src="https://img.shields.io/github/forks/theeldermillenial/iagon-py" alt="forks" />
-  </a>
-  <a href="https://github.com/theeldermillenial/iagon-py/stargazers">
-    <img src="https://img.shields.io/github/stars/theeldermillenial/iagon-py" alt="stars" />
-  </a>
-  <a href="https://github.com/theeldermillenial/iagon-py/issues/">
-    <img src="https://img.shields.io/github/issues/theeldermillenial/iagon-py" alt="open issues" />
+    <img src="https://img.shields.io/badge/code_format-black-black" alt="open issues" />
   </a>
   <a href="https://github.com/theeldermillenial/iagon-py/blob/master/LICENSE">
     <img src="https://img.shields.io/github/license/theeldermillenial/iagon-py.svg" alt="license" />
