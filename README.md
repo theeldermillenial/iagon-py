@@ -1,7 +1,65 @@
-# iagon-py
+<div align="center">
+
+  <img src="imgs/iagon-py.png" alt="iagon-py" width="200" height="auto" />
+  <p>
+    A Python client for Iagon!
+  </p>
+
+<!-- Badges -->
+<p>
+  <a href="https://github.com/theeldermillenial/iagon-py/graphs/contributors">
+    <img src="https://img.shields.io/github/contributors/theeldermillenial/iagon-py" alt="contributors" />
+  </a>
+  <a href="">
+    <img src="https://img.shields.io/pypi/v/iagon-py" alt="last update" />
+  </a>
+  <a href="https://github.com/theeldermillenial/iagon-py/network/members">
+    <img src="https://img.shields.io/github/forks/theeldermillenial/iagon-py" alt="forks" />
+  </a>
+  <a href="https://github.com/theeldermillenial/iagon-py/stargazers">
+    <img src="https://img.shields.io/github/stars/theeldermillenial/iagon-py" alt="stars" />
+  </a>
+  <a href="https://github.com/theeldermillenial/iagon-py/issues/">
+    <img src="https://img.shields.io/github/issues/theeldermillenial/iagon-py" alt="open issues" />
+  </a>
+  <a href="https://github.com/theeldermillenial/iagon-py/blob/master/LICENSE">
+    <img src="https://img.shields.io/github/license/theeldermillenial/iagon-py.svg" alt="license" />
+  </a>
+</p>
+
+<h4>
+    <a href="https://github.com/theeldermillenial/iagon-py">Documentation (Coming Soon!)</a>
+  <span> · </span>
+    <a href="https://github.com/theeldermillenial/iagon-py/issues/">Report Bug</a>
+  <span> · </span>
+    <a href="https://github.com/theeldermillenial/iagon-py/issues/">Request Feature</a>
+  </h4>
+</div>
 
 `iagon-py` is a Python package for storing/accessing data on Iagon, a privacy focused
 decentralized storage protocol on Cardano.
+
+<!-- Table of Contents -->
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#why-is-this-needed">Why?</a>
+    </li>
+    <li>
+      <a href="#what-is-the-roadmap-for-this-project">Roadmap</a>
+    </li>
+    <li>
+      <a href="#how-do-i-use-it">How To</a>
+      <ul>
+        <li><a href="#installation">Installation</a></li>
+        <li><a href="#creating-folders-and-uploading-data">Download Public Data</a></li>
+        <li><a href="#creating-folders-and-uploading-data">Creating Folders and Uploading Data</a></li>
+      </ul>
+    </li>
+    <li><a href="#how-can-i-help">Contribute</a></li>
+  </ol>
+</details>
 
 ## Why is this needed?
 
@@ -24,6 +82,16 @@ followed by a more complete implementation of the virtual file system.
 
 ## How do I use it?
 
+### Installation
+
+You can install with `pip` from PyPI, but there is currently a bug in `pycardano` that
+doesn't allow `CIP8` message signing with extended payment keys, so this will not work.
+Instead, you will need to clone and install this repo:
+
+```bash
+pip install iagon-py
+```
+
 ### Download public data
 
 A common use case will be sharing public data directly from Iagon. `iagon-py` makes it
@@ -35,14 +103,6 @@ methods to aggregate proposals into similar groups to summarize and filter them.
 data has been stored on Iagon, so this example will download them all. Some information
 on how the groups were generated and clustered can be found
 [on Twitter](https://x.com/ElderM/status/1702643308198060211?s=20).
-
-You can install with `pip` from PyPI, but there is currently a bug in `pycardano` that
-doesn't allow `CIP8` message signing with extended payment keys, so this will not work.
-Instead, you will need to clone and install this repo:
-
-```bash
-pip install iagon-py
-```
 
 Next, create a short script to pull in and store the compressed data.
 
